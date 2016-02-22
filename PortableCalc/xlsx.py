@@ -1,7 +1,7 @@
 ﻿from openpyxl import load_workbook
 
 #open file and get sheet
-wb = load_workbook("zzzTest.xlsx")
+wb = load_workbook("CostAnalysis.xlsx")
 ws = wb.get_sheet_by_name("Analysis")
 
 #get configuration

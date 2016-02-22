@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>8c1bbf12-7019-4e9b-99d1-22653bef39e4</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PortableCalc.py</StartupFile>
+    <StartupFile>xlsxcombo.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,7 +25,7 @@
     <Compile Include="combination.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PortableCalc.py" />
+    <Compile Include="xlsxcombo.py" />
     <Compile Include="xlsx.py">
       <SubType>Code</SubType>
     </Compile>

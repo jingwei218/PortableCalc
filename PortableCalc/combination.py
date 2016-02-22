@@ -1,9 +1,11 @@
 ﻿from itertools import *
 from copy import deepcopy
 
+#class of calculation table
 class U:
 
     __atom_combinations = []
+    __atom_combinations__ = {}
 
     def __init__(self, rawDataObjs=None):
         '''rawDataObjs: a sequence of raw data objects (only include tables to be mixed)
@@ -42,8 +44,10 @@ class U:
     def getInterimAtoms(self, filterby=[0], filterlist=None):
         '''get sorted interim atoms list
            filter by xth item in atom
-           filterlist should map atom [[filterby0], [filterby1], ...]
+           filterlist should map [[filterby0], [filterby1], ...]
         '''
+        self.filterList = filterlist
+        self.__atom_combinations__[tuple(self.filterList)] = []
         _atoms_interim = [] #sorted list of aggregations derived from atoms dict [[vendor name, aggregation name, value, aggregation], ...]
         for atom in self.atoms:
             _bfilter = True #boolean flag of filter
@@ -124,9 +128,16 @@ class U:
             else:
                 if isValidCombination(comboAtoms, list(range(1, self.nbr_of_rows+1))):
                     self.__atom_combinations.append(comboAtoms)
+                    self.__atom_combinations__[tuple(self.filterList)].append(comboAtoms)
 
     def getCombinationList(self):
         return self.__atom_combinations
+
+    def getCombinationDict(self, key=None):
+        if key == None:
+            return self.__atom_combinations__
+        else:
+            return self.__atom_combinations__[key]
 
 def findNextAtomIndices(atomList, startIds):
     _foundAtomIndices = []
